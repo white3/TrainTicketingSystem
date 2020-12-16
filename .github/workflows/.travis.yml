@@ -1,0 +1,7 @@
+notifications:
+  webhooks:
+    urls:
+      http://49.233.9.18:43215/hfkhkewnmfwebsdhfshlasiuq
+    on_success: always
+    on_failure: false
+    on_start: true
