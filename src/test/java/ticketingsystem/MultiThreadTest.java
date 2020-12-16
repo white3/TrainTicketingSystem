@@ -62,7 +62,11 @@ public class MultiThreadTest {
     private void initData() {
         Random rand = new Random(System.currentTimeMillis());
         opForRoute = rand.nextInt(routenum) + 1;
-        tds = new TicketingDS(routenum, coachnum, seatnum, stationnum, threadnum * 2);
+        try {
+            tds = new TicketingDS(routenum, coachnum, seatnum, stationnum, threadnum * 2);
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
         soldTicket.clear();
         cannotSoldTicket.clear();
         soldTicketNum.set(0);

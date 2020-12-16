@@ -43,7 +43,11 @@ public class PerformanceBenchmark {
     @Setup(Level.Iteration)
     public void init() {
         this.pool = Executors.newFixedThreadPool(nThreads);
-        tds = new TicketingDS(routenum, coachnum, seatnum, stationnum, nThreads);
+        try {
+            tds = new TicketingDS(routenum, coachnum, seatnum, stationnum, nThreads);
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
         list = new ArrayList<>();
         for (int i = 0; i < nThreads; i++) {
             list.add(new Callable<Object>() {
